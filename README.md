@@ -2,7 +2,7 @@
 
 Simulador interactivo para la enseñanza de teoría del consumidor a nivel de grado avanzado (Economía, Contador Público, Administración). Permite explorar el problema de maximización de utilidad sujeta a restricción presupuestaria, comparar cuatro formas funcionales de preferencias racionales y derivar en tiempo real la curva precio-consumo y la función de demanda marshalliana correspondiente.
 
-**[`Demo en vivo`]**(https://fcontiggiani.github.io/eleccion-consumidor-demanda/eleccion_consumidor_demanda.html)
+**[`Demo en vivo`](https://fcontiggiani.github.io/eleccion-consumidor-demanda/eleccion_consumidor_demanda.html)**
 
 ---
 
