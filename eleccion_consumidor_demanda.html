@@ -30,17 +30,41 @@
     --border: #35393e;
     --good: #3f7d5c;
     --accent-line: #c94f4f;
+
+    /* Colores dependientes del tema (oscuro por defecto) */
+    --bg-body: var(--graphite);
+    --text-body: #e8e6df;
+    --text-heading: #f2f0e8;
+    --text-secondary: #d8d5cb;
+    --panel-bg: var(--graphite-panel);
+    --control-bg: var(--graphite);
+    --sum-highlight: #cfae6b;
+  }
+
+  [data-theme="light"] {
+    --bg-body: #f4f1e8;
+    --text-body: #33312b;
+    --text-heading: #201e1a;
+    --text-secondary: #3d3b34;
+    --panel-bg: #ffffff;
+    --control-bg: #ece7d9;
+    --border: #d3ccb8;
+    --muted: #6b6456;
+    --paper: #fbfaf5;
+    --paper-line: #ddd6c2;
+    --sum-highlight: #8a6226;
   }
 
   * { box-sizing: border-box; }
 
   body {
     margin: 0;
-    background: var(--graphite);
-    color: #e8e6df;
+    background: var(--bg-body);
+    color: var(--text-body);
     font-family: 'Source Serif Pro', Georgia, 'Times New Roman', serif;
     line-height: 1.5;
     padding: 28px 20px 60px;
+    transition: background 0.25s ease, color 0.25s ease;
   }
 
   .wrap {
@@ -54,20 +78,63 @@
     margin-bottom: 28px;
   }
 
+  .hero-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 16px;
+  }
+
   .eyebrow {
     font-family: 'IBM Plex Mono', 'Courier New', monospace;
     font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ochre);
-    margin-bottom: 8px;
   }
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--control-bg);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    padding: 7px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--petrol);
+    color: var(--text-heading);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--petrol);
+    outline-offset: 2px;
+  }
+
+  .theme-toggle-icon {
+    display: inline-flex;
+    width: 13px;
+    height: 13px;
+    color: var(--ochre);
+  }
+
+  .theme-toggle-icon svg { width: 100%; height: 100%; }
 
   h1 {
     font-size: 27px;
     font-weight: 600;
     margin: 0 0 8px;
-    color: #f2f0e8;
+    color: var(--text-heading);
     letter-spacing: -0.01em;
   }
 
@@ -88,8 +155,13 @@
     .layout { grid-template-columns: 1fr; }
   }
 
+  @media (max-width: 480px) {
+    .theme-toggle-label { display: none; }
+    .theme-toggle { padding: 7px 9px; }
+  }
+
   .panel {
-    background: var(--graphite-panel);
+    background: var(--panel-bg);
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 18px 20px;
@@ -118,7 +190,7 @@
     align-items: baseline;
     font-size: 13.5px;
     margin-bottom: 6px;
-    color: #d8d5cb;
+    color: var(--text-secondary);
   }
 
   .control-label .val {
@@ -162,9 +234,9 @@
 
   .form-select button {
     text-align: left;
-    background: var(--graphite);
+    background: var(--control-bg);
     border: 1px solid var(--border);
-    color: #d8d5cb;
+    color: var(--text-secondary);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11.5px;
     padding: 8px 10px;
@@ -176,7 +248,7 @@
   .form-select button .fn-name {
     display: block;
     font-weight: 600;
-    color: #f0eee6;
+    color: var(--text-heading);
     font-size: 12px;
     margin-bottom: 2px;
   }
@@ -216,7 +288,7 @@
   .path-toggle button {
     flex: 1;
     min-width: 80px;
-    background: var(--graphite);
+    background: var(--control-bg);
     border: 1px solid var(--border);
     color: var(--muted);
     font-family: 'IBM Plex Mono', monospace;
@@ -251,8 +323,8 @@
     margin-top: 10px;
   }
   .snapshot-btn:hover { background: #a1731f; }
-  .snapshot-btn.clear { background: var(--graphite); border: 1px solid var(--border); color: var(--muted); }
-  .snapshot-btn.clear:hover { color: #e8e6df; border-color: var(--muted); }
+  .snapshot-btn.clear { background: var(--control-bg); border: 1px solid var(--border); color: var(--muted); }
+  .snapshot-btn.clear:hover { color: var(--text-body); border-color: var(--muted); }
 
   .charts-col { display: flex; flex-direction: column; gap: 20px; }
 
@@ -297,7 +369,7 @@
   }
 
   .results-panel {
-    background: var(--graphite-panel);
+    background: var(--panel-bg);
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 18px 20px;
@@ -335,7 +407,7 @@
 
   .derivation {
     margin-top: 22px;
-    background: var(--graphite-panel);
+    background: var(--panel-bg);
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 20px 24px;
@@ -427,7 +499,7 @@
   .derivation .step {
     margin-bottom: 14px;
     font-size: 14.5px;
-    color: #d8d5cb;
+    color: var(--text-secondary);
   }
 
   .derivation .step .lbl {
@@ -449,14 +521,25 @@
     line-height: 1.6;
   }
 
-  .footnote strong { color: #b8b5aa; }
+  .footnote strong { color: var(--text-secondary); }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header class="hero">
-    <div class="eyebrow">Bloque 1 · Teoría del Consumidor</div>
+    <div class="hero-top-row">
+      <div class="eyebrow">Bloque 1 · Teoría del Consumidor</div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar a fondo claro" title="Cambiar a fondo claro">
+        <span class="theme-toggle-icon" id="theme-toggle-icon">
+          <!-- ícono de luna (mostrado en tema oscuro) -->
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.5 11.5A7.5 7.5 0 0 1 8.5 2.5a.6.6 0 0 0-.77-.7A8 8 0 1 0 18.2 12.27a.6.6 0 0 0-.7-.77Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="theme-toggle-label" id="theme-toggle-label">Fondo claro</span>
+      </button>
+    </div>
     <h1>Elección Óptima del Consumidor: Trayectoria Precio-Consumo y Demanda Marshalliana bajo Distintas Formas Funcionales</h1>
     <div class="subtitle">
       Optimización de $U(x,y)$ sujeta a $p_x x + p_y y = m$, para cuatro familias de preferencias racionales:
@@ -529,7 +612,7 @@
         </div>
         <input type="range" id="cd-beta" min="0.05" max="2" step="0.01" value="0.5">
         <div class="hint" id="hint-cd">$U(x,y)=x^{\alpha}y^{\beta}$, sin normalizar $\alpha+\beta=1$</div>
-        <div class="hint" id="hint-cd-sum" style="margin-top:4px; color:#cfae6b;"></div>
+        <div class="hint" id="hint-cd-sum" style="margin-top:4px; color:var(--sum-highlight);"></div>
       </div>
 
       <div class="control-block param-extra" id="block-ces-alpha">
@@ -745,6 +828,9 @@
     derivationToggle: document.getElementById('derivation-toggle'),
     derivationBody: document.getElementById('derivation-body'),
     derivationToggleHint: document.getElementById('derivation-toggle-hint'),
+    themeToggle: document.getElementById('theme-toggle'),
+    themeToggleLabel: document.getElementById('theme-toggle-label'),
+    themeToggleIcon: document.getElementById('theme-toggle-icon'),
   };
 
   function svgEl(tag, attrs) {
@@ -1560,6 +1646,46 @@
   el.btnClear.addEventListener('click', () => {
     state.fixedPoints = [];
     updateAll();
+  });
+
+  // ---------- Alternancia de tema claro / oscuro ----------
+  const ICON_MOON = '<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.5 11.5A7.5 7.5 0 0 1 8.5 2.5a.6.6 0 0 0-.77-.7A8 8 0 1 0 18.2 12.27a.6.6 0 0 0-.7-.77Z" fill="currentColor"/></svg>';
+  const ICON_SUN = '<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="4" fill="currentColor"/><path d="M10 1v2.2M10 16.8V19M19 10h-2.2M3.2 10H1M16.4 3.6l-1.55 1.55M5.15 14.85 3.6 16.4M16.4 16.4l-1.55-1.55M5.15 5.15 3.6 3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>';
+  const THEME_STORAGE_KEY = 'microecon-consumer-choice-theme';
+
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      el.themeToggleIcon.innerHTML = ICON_SUN;
+      el.themeToggleLabel.textContent = 'Fondo oscuro';
+      el.themeToggle.setAttribute('aria-label', 'Cambiar a fondo oscuro');
+      el.themeToggle.setAttribute('title', 'Cambiar a fondo oscuro');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      el.themeToggleIcon.innerHTML = ICON_MOON;
+      el.themeToggleLabel.textContent = 'Fondo claro';
+      el.themeToggle.setAttribute('aria-label', 'Cambiar a fondo claro');
+      el.themeToggle.setAttribute('title', 'Cambiar a fondo claro');
+    }
+  }
+
+  function getPreferredTheme() {
+    try {
+      const saved = window.localStorage.getItem(THEME_STORAGE_KEY);
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch (e) { /* localStorage no disponible (p.ej. iframe restringido): se ignora */ }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+    return 'dark';
+  }
+
+  let currentTheme = getPreferredTheme();
+  applyTheme(currentTheme);
+
+  el.themeToggle.addEventListener('click', () => {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    applyTheme(currentTheme);
+    try { window.localStorage.setItem(THEME_STORAGE_KEY, currentTheme); }
+    catch (e) { /* almacenamiento no disponible: la preferencia no persiste, pero el cambio visual funciona igual */ }
   });
 
   updateFormUI();
