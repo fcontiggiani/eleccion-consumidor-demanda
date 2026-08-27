@@ -2,7 +2,7 @@
 
 Simulador interactivo para la enseñanza de teoría del consumidor a nivel de grado avanzado (Economía, Contador Público, Administración). Permite explorar el problema de maximización de utilidad sujeta a restricción presupuestaria, comparar cuatro formas funcionales de preferencias racionales y derivar en tiempo real la curva precio-consumo y la función de demanda marshalliana correspondiente.
 
-**Demo en vivo:** `https://<usuario>.github.io/<repositorio>/eleccion_consumidor_cobb_douglas.html`
+**[`Demo en vivo`](https://fcontiggiani.github.io/eleccion-consumidor-demanda/eleccion_consumidor_demanda.html)**
 
 ---
 
@@ -48,33 +48,9 @@ A diferencia de la exposición habitual de los manuales, el simulador **no norma
 
 ---
 
-## Publicación en GitHub Pages
-
-1. Subir `eleccion_consumidor_cobb_douglas.html` a la raíz del repositorio (**Add file → Upload files**).
-2. En **Settings → Pages**, seleccionar **Deploy from a branch**, rama `main`, carpeta `/ (root)`, y guardar.
-3. Tras uno o dos minutos, el recurso queda disponible en:
-
-   ```
-   https://<usuario>.github.io/<repositorio>/eleccion_consumidor_cobb_douglas.html
-   ```
-
-Para actualizaciones posteriores, basta con volver a subir el archivo homónimo: GitHub ofrece sobrescribirlo y la URL pública permanece invariable.
-
 ### Incrustación en Moodle
 
 **Opción recomendada — recurso de tipo URL:** pegar el enlace anterior como recurso externo; es la alternativa de mayor compatibilidad, independiente de la configuración de seguridad de la instalación institucional.
-
-**Alternativa — incrustación mediante `<iframe>`** dentro de una Etiqueta o Página:
-
-```html
-<iframe src="https://<usuario>.github.io/<repositorio>/eleccion_consumidor_cobb_douglas.html"
-        width="100%" height="1400" style="border:none;">
-</iframe>
-```
-
-Se recomienda una altura mínima de `1400px`, dado que el recurso incluye panel de controles, tres gráficos y el bloque de derivación (aun colapsado). Si la instalación de Moodle elimina automáticamente las etiquetas `<iframe>` por política de seguridad de contenido enriquecido, usar la opción de recurso URL.
-
----
 
 ## Notas técnicas
 
