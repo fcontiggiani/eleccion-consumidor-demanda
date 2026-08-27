@@ -542,7 +542,7 @@
     </div>
     <h1>Elección Óptima del Consumidor: Trayectoria Precio-Consumo y Demanda Marshalliana bajo Distintas Formas Funcionales</h1>
     <div class="subtitle">
-      Optimización de $U(x,y)$ sujeta a $p_x x + p_y y = m$, para cuatro familias de preferencias racionales:
+      Optimización de $U(x_1,x_2)$ sujeta a $p_1 x_1 + p_2 x_2 = m$, para cuatro familias de preferencias racionales:
       Cobb-Douglas, sustitutos perfectos, complementarios perfectos (Leontief) y CES (que nidifica a las tres anteriores como casos límite).
       Manipule los parámetros para observar cómo cambia la forma de las curvas de indiferencia, la naturaleza de la solución (interior o de esquina)
       y la elasticidad de sustitución resultante en la curva de demanda.
@@ -557,19 +557,19 @@
       <div class="form-select" id="form-select">
         <button data-form="cobb-douglas" class="active">
           <span class="fn-name">Cobb-Douglas</span>
-          <span class="fn-formula">U = xᵅ y¹⁻ᵅ</span>
+          <span class="fn-formula">U = x₁ᵅ x₂ᵝ</span>
         </button>
         <button data-form="perfect-subs">
           <span class="fn-name">Sustitutos perfectos</span>
-          <span class="fn-formula">U = a·x + b·y</span>
+          <span class="fn-formula">U = a·x₁ + b·x₂</span>
         </button>
         <button data-form="leontief">
           <span class="fn-name">Complementarios perfectos</span>
-          <span class="fn-formula">U = min(x/a, y/b)</span>
+          <span class="fn-formula">U = min(x₁/a, x₂/b)</span>
         </button>
         <button data-form="ces">
           <span class="fn-name">CES</span>
-          <span class="fn-formula">U = (αxᵖ+(1−α)yᵖ)^(1/ρ)</span>
+          <span class="fn-formula">U = (αx₁ᵖ+(1−α)x₂ᵖ)^(1/ρ)</span>
         </button>
       </div>
 
@@ -577,16 +577,16 @@
 
       <div class="control-block">
         <div class="control-label">
-          <span>Precio de x, $p_x$</span>
+          <span>Precio de $x_1$, $p_1$</span>
           <span class="val" id="val-px">2.00</span>
         </div>
         <input type="range" id="px" min="0.5" max="10" step="0.1" value="2">
-        <div class="hint">Variable que traza la curva precio-consumo cuando "Eje de barrido" = pₓ</div>
+        <div class="hint">Variable que traza la curva precio-consumo cuando "Eje de barrido" = $p_1$</div>
       </div>
 
       <div class="control-block">
         <div class="control-label">
-          <span>Precio de y, $p_y$</span>
+          <span>Precio de $x_2$, $p_2$</span>
           <span class="val" id="val-py">2.00</span>
         </div>
         <input type="range" id="py" min="0.5" max="10" step="0.1" value="2">
@@ -602,36 +602,36 @@
 
       <div class="control-block param-extra visible" id="block-cd">
         <div class="control-label">
-          <span>Exponente $\alpha$ (bien x)</span>
+          <span>Exponente $\alpha$ (bien $x_1$)</span>
           <span class="val" id="val-cd-alpha">0.50</span>
         </div>
         <input type="range" id="cd-alpha" min="0.05" max="2" step="0.01" value="0.5">
         <div class="control-label" style="margin-top:10px;">
-          <span>Exponente $\beta$ (bien y)</span>
+          <span>Exponente $\beta$ (bien $x_2$)</span>
           <span class="val" id="val-cd-beta">0.50</span>
         </div>
         <input type="range" id="cd-beta" min="0.05" max="2" step="0.01" value="0.5">
-        <div class="hint" id="hint-cd">$U(x,y)=x^{\alpha}y^{\beta}$, sin normalizar $\alpha+\beta=1$</div>
+        <div class="hint" id="hint-cd">$U(x_1,x_2)=x_1^{\alpha}x_2^{\beta}$, sin normalizar $\alpha+\beta=1$</div>
         <div class="hint" id="hint-cd-sum" style="margin-top:4px; color:var(--sum-highlight);"></div>
       </div>
 
       <div class="control-block param-extra" id="block-ces-alpha">
         <div class="control-label">
-          <span>Parámetro $\alpha$ (peso de x)</span>
+          <span>Parámetro $\alpha$ (peso de $x_1$)</span>
           <span class="val" id="val-ces-alpha">0.50</span>
         </div>
         <input type="range" id="ces-alpha" min="0.05" max="0.95" step="0.01" value="0.5">
-        <div class="hint">$U(x,y)=(\alpha x^{\rho}+(1-\alpha)y^{\rho})^{1/\rho}$ — aquí $\alpha\in(0,1)$ sí está normalizado, para que $U$ sea homogénea de grado 1</div>
+        <div class="hint">$U(x_1,x_2)=(\alpha x_1^{\rho}+(1-\alpha)x_2^{\rho})^{1/\rho}$ — aquí $\alpha\in(0,1)$ sí está normalizado, para que $U$ sea homogénea de grado 1</div>
       </div>
 
       <div class="control-block param-extra" id="block-ab">
         <div class="control-label">
-          <span>Coeficiente $a$ (bien x)</span>
+          <span>Coeficiente $a$ (bien $x_1$)</span>
           <span class="val" id="val-a">1.00</span>
         </div>
         <input type="range" id="coef-a" min="0.2" max="5" step="0.1" value="1">
         <div class="control-label" style="margin-top:10px;">
-          <span>Coeficiente $b$ (bien y)</span>
+          <span>Coeficiente $b$ (bien $x_2$)</span>
           <span class="val" id="val-b">1.00</span>
         </div>
         <input type="range" id="coef-b" min="0.2" max="5" step="0.1" value="1">
@@ -650,8 +650,8 @@
       <div class="divider-note">
         Eje de barrido para la curva precio-consumo y la demanda:
         <div class="path-toggle">
-          <button id="btn-sweep-px" class="active">variar pₓ</button>
-          <button id="btn-sweep-py">variar p_y</button>
+          <button id="btn-sweep-px" class="active">variar $p_1$</button>
+          <button id="btn-sweep-py">variar $p_2$</button>
         </div>
       </div>
 
@@ -667,7 +667,7 @@
 
       <div class="chart-panel">
         <div class="chart-title-row">
-          <span class="chart-title">Panel 1 — Óptimo del consumidor en el plano (x, y)</span>
+          <span class="chart-title">Panel 1 — Óptimo del consumidor en el plano $(x_1,x_2)$</span>
           <span class="chart-caption">Curvas de indiferencia + restricción presupuestaria</span>
         </div>
         <svg id="svg-optimum" class="plot" viewBox="0 0 640 460" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -678,7 +678,7 @@
           <div class="chart-title-row">
             <span class="chart-title">Panel 2 — Curva precio-consumo</span>
           </div>
-          <div class="chart-caption" id="pcc-caption" style="margin-bottom:6px;">Lugar geométrico de óptimos al variar pₓ, con py y m fijos</div>
+          <div class="chart-caption" id="pcc-caption" style="margin-bottom:6px;">Lugar geométrico de óptimos al variar $p_1$, con $p_2$ y $m$ fijos</div>
           <svg id="svg-pcc" class="plot" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg"></svg>
         </div>
 
@@ -686,7 +686,7 @@
           <div class="chart-title-row">
             <span class="chart-title">Panel 3 — Función de demanda</span>
           </div>
-          <div class="chart-caption" id="demand-caption" style="margin-bottom:6px;">x*(pₓ) para py y m fijos actuales</div>
+          <div class="chart-caption" id="demand-caption" style="margin-bottom:6px;">$x_1^*(p_1)$ para $p_2$ y $m$ fijos actuales</div>
           <svg id="svg-demand" class="plot" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg"></svg>
         </div>
       </div>
@@ -695,23 +695,23 @@
         <h2 style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--petrol);margin:0 0 14px;border-bottom:1px solid var(--border);padding-bottom:10px;">Valores en el óptimo actual</h2>
         <div class="results-grid">
           <div class="result-item">
-            <div class="k">x*(p, m)</div>
+            <div class="k">$x_1^*(p, m)$</div>
             <div class="v" id="res-x">—</div>
           </div>
           <div class="result-item">
-            <div class="k">y*(p, m)</div>
+            <div class="k">$x_2^*(p, m)$</div>
             <div class="v" id="res-y">—</div>
           </div>
           <div class="result-item">
-            <div class="k">Utilidad máxima U*</div>
+            <div class="k">Utilidad máxima $U^*$</div>
             <div class="v ochre" id="res-u">—</div>
           </div>
           <div class="result-item">
-            <div class="k">Gasto en x (α·m)</div>
+            <div class="k">Gasto en $x_1$ (α·m)</div>
             <div class="v" id="res-gx">—</div>
           </div>
           <div class="result-item">
-            <div class="k">Gasto en y ((1-α)·m)</div>
+            <div class="k">Gasto en $x_2$ ((1-α)·m)</div>
             <div class="v" id="res-gy">—</div>
           </div>
           <div class="result-item">
@@ -874,35 +874,35 @@
         return `
         <div class="step">
           <span class="lbl">1. Planteo del problema del consumidor</span>
-          $$\\max_{x,y \\ge 0} \\; U(x,y) = x^{\\alpha}y^{\\beta} \\quad \\text{s.a.} \\quad p_x x + p_y y = m, \\qquad \\alpha,\\beta > 0 \\;\\;(\\text{sin exigir } \\alpha+\\beta=1)$$
+          $$\\max_{x_1,x_2 \\ge 0} \\; U(x_1,x_2) = x_1^{\\alpha}x_2^{\\beta} \\quad \\text{s.a.} \\quad p_1 x_1 + p_2 x_2 = m, \\qquad \\alpha,\\beta > 0 \\;\\;(\\text{sin exigir } \\alpha+\\beta=1)$$
         </div>
         <div class="step">
           <span class="lbl">2. Lagrangiano y condiciones de primer orden</span>
-          $$\\mathcal{L} = x^{\\alpha}y^{\\beta} + \\lambda\\left(m - p_x x - p_y y\\right)$$
-          $$\\frac{\\partial \\mathcal{L}}{\\partial x} = \\alpha x^{\\alpha-1}y^{\\beta} - \\lambda p_x = 0, \\qquad
-            \\frac{\\partial \\mathcal{L}}{\\partial y} = \\beta x^{\\alpha}y^{\\beta-1} - \\lambda p_y = 0$$
+          $$\\mathcal{L} = x_1^{\\alpha}x_2^{\\beta} + \\lambda\\left(m - p_1 x_1 - p_2 x_2\\right)$$
+          $$\\frac{\\partial \\mathcal{L}}{\\partial x_1} = \\alpha x_1^{\\alpha-1}x_2^{\\beta} - \\lambda p_1 = 0, \\qquad
+            \\frac{\\partial \\mathcal{L}}{\\partial x_2} = \\beta x_1^{\\alpha}x_2^{\\beta-1} - \\lambda p_2 = 0$$
         </div>
         <div class="step">
           <span class="lbl">3. Condición de tangencia (RMS = relación de precios)</span>
-          $$\\text{RMS}_{xy} = \\frac{U_x}{U_y} = \\frac{\\alpha}{\\beta}\\cdot\\frac{y}{x} = \\frac{p_x}{p_y}
-          \\;\\Longrightarrow\\; y = \\frac{\\beta}{\\alpha}\\cdot\\frac{p_x}{p_y}\\, x$$
+          $$\\text{RMS}_{12} = \\frac{U_{x_1}}{U_{x_2}} = \\frac{\\alpha}{\\beta}\\cdot\\frac{x_2}{x_1} = \\frac{p_1}{p_2}
+          \\;\\Longrightarrow\\; x_2 = \\frac{\\beta}{\\alpha}\\cdot\\frac{p_1}{p_2}\\, x_1$$
           Nótese que el cociente $\\alpha/\\beta$ es lo único que determina la pendiente de la senda de expansión: multiplicar ambos exponentes por una misma constante no altera esta razón.
         </div>
         <div class="step">
           <span class="lbl">4. Sustitución en la restricción presupuestaria</span>
-          $$p_x x + p_y\\left[\\frac{\\beta}{\\alpha}\\cdot\\frac{p_x}{p_y}x\\right] = m
-          \\;\\Longrightarrow\\; p_x x\\left[\\frac{\\alpha+\\beta}{\\alpha}\\right]=m$$
+          $$p_1 x_1 + p_2\\left[\\frac{\\beta}{\\alpha}\\cdot\\frac{p_1}{p_2}x_1\\right] = m
+          \\;\\Longrightarrow\\; p_1 x_1\\left[\\frac{\\alpha+\\beta}{\\alpha}\\right]=m$$
         </div>
         <div class="step">
           <span class="lbl">5. Funciones de demanda marshallianas (resultado general, $\\alpha+\\beta\\neq1$ permitido)</span>
-          $$\\boxed{x^{*}(p_x,p_y,m) = \\frac{\\alpha}{\\alpha+\\beta}\\cdot\\frac{m}{p_x}} \\qquad\\qquad
-            \\boxed{y^{*}(p_x,p_y,m) = \\frac{\\beta}{\\alpha+\\beta}\\cdot\\frac{m}{p_y}}$$
-          <strong>Resultado clave — invariancia ante transformaciones monótonas:</strong> la demanda depende únicamente de la <em>razón</em> $\\alpha/(\\alpha+\\beta)$, no de los valores absolutos de $\\alpha$ y $\\beta$. Esto es una manifestación directa de que la utilidad es un índice puramente ordinal: $U=x^\\alpha y^\\beta$ y $\\tilde U = U^{1/(\\alpha+\\beta)} = x^{\\alpha/(\\alpha+\\beta)}y^{\\beta/(\\alpha+\\beta)}$ representan exactamente las mismas preferencias (la segunda es una transformación monótona creciente de la primera, al ser $t\\mapsto t^{1/(\\alpha+\\beta)}$ estrictamente creciente para $\\alpha+\\beta>0$), y por construcción $\\tilde{U}$ sí tiene exponentes que suman uno. En el simulador, fije $\\alpha=1.2,\\ \\beta=0.8$ (suma $=2$) y compare con $\\alpha=0.6,\\ \\beta=0.4$ (misma razón $3{:}2$, suma $=1$): el óptimo $(x^*,y^*)$ es idéntico en ambos casos.
+          $$\\boxed{x_1^{*}(p_1,p_2,m) = \\frac{\\alpha}{\\alpha+\\beta}\\cdot\\frac{m}{p_1}} \\qquad\\qquad
+            \\boxed{x_2^{*}(p_1,p_2,m) = \\frac{\\beta}{\\alpha+\\beta}\\cdot\\frac{m}{p_2}}$$
+          <strong>Resultado clave — invariancia ante transformaciones monótonas:</strong> la demanda depende únicamente de la <em>razón</em> $\\alpha/(\\alpha+\\beta)$, no de los valores absolutos de $\\alpha$ y $\\beta$. Esto es una manifestación directa de que la utilidad es un índice puramente ordinal: $U=x_1^\\alpha x_2^\\beta$ y $\\tilde U = U^{1/(\\alpha+\\beta)} = x_1^{\\alpha/(\\alpha+\\beta)}x_2^{\\beta/(\\alpha+\\beta)}$ representan exactamente las mismas preferencias (la segunda es una transformación monótona creciente de la primera, al ser $t\\mapsto t^{1/(\\alpha+\\beta)}$ estrictamente creciente para $\\alpha+\\beta>0$), y por construcción $\\tilde{U}$ sí tiene exponentes que suman uno. En el simulador, fije $\\alpha=1.2,\\ \\beta=0.8$ (suma $=2$) y compare con $\\alpha=0.6,\\ \\beta=0.4$ (misma razón $3{:}2$, suma $=1$): el óptimo $(x_1^*,x_2^*)$ es idéntico en ambos casos.
         </div>
         <div class="step">
           <span class="lbl">6. Curva precio-consumo y elasticidad</span>
-          Con $p_y, m$ fijos, $y^*$ no depende de $p_x$: la curva precio-consumo es <strong>horizontal</strong>, igual que en el caso normalizado.
-          $$\\varepsilon_{x,p_x} = \\frac{\\partial x^*}{\\partial p_x}\\cdot\\frac{p_x}{x^*} = -1 \\quad \\forall\\, p_x>0 \\quad\\text{(elasticidad unitaria, independiente de }\\alpha,\\beta\\text{)}$$
+          Con $p_2, m$ fijos, $x_2^*$ no depende de $p_1$: la curva precio-consumo es <strong>horizontal</strong>, igual que en el caso normalizado.
+          $$\\varepsilon_{x_1,p_1} = \\frac{\\partial x_1^*}{\\partial p_1}\\cdot\\frac{p_1}{x_1^*} = -1 \\quad \\forall\\, p_1>0 \\quad\\text{(elasticidad unitaria, independiente de }\\alpha,\\beta\\text{)}$$
         </div>`;
       },
       notaHTML(s) {
@@ -912,7 +912,7 @@
         if (Math.abs(sum - 1) < 0.02) comentarioSuma = 'está normalizada ($\\alpha+\\beta\\approx1$), el caso convencional de los libros de texto';
         else if (sum > 1) comentarioSuma = `suma ${fmt(sum,2)} > 1: es una utilidad "más grande" en el sentido cardinal, pero representa exactamente las mismas preferencias que su versión normalizada, ya que la elección óptima solo depende de la razón $\\alpha/\\beta=${fmt(s.cdAlpha/s.cdBeta,3)}$`;
         else comentarioSuma = `suma ${fmt(sum,2)} < 1: nuevamente irrelevante para la elección óptima por la misma razón de invariancia ordinal`;
-        return `Con $\\alpha=${fmt(s.cdAlpha,2)}$ y $\\beta=${fmt(s.cdBeta,2)}$ (suma $=${fmt(sum,2)}$), las participaciones de gasto son $p_xx^*/m=\\alpha/(\\alpha+\\beta)=${fmt(shareX,3)}$ y $p_yy^*/m=\\beta/(\\alpha+\\beta)=${fmt(shareY,3)}$. Esta suma ${comentarioSuma}. <em>Advertencia docente:</em> $\\alpha+\\beta$ sí importaría si $U$ se interpretara como una función de <strong>producción</strong> (donde mide rendimientos a escala), pero en el problema del consumidor la utilidad no tiene magnitud cardinal, por lo que la suma de exponentes no tiene interpretación económica directa sobre la elección — solo la razón entre ellos determina la canasta óptima.`;
+        return `Con $\\alpha=${fmt(s.cdAlpha,2)}$ y $\\beta=${fmt(s.cdBeta,2)}$ (suma $=${fmt(sum,2)}$), las participaciones de gasto son $p_1x_1^*/m=\\alpha/(\\alpha+\\beta)=${fmt(shareX,3)}$ y $p_2x_2^*/m=\\beta/(\\alpha+\\beta)=${fmt(shareY,3)}$. Esta suma ${comentarioSuma}. <em>Advertencia docente:</em> $\\alpha+\\beta$ sí importaría si $U$ se interpretara como una función de <strong>producción</strong> (donde mide rendimientos a escala), pero en el problema del consumidor la utilidad no tiene magnitud cardinal, por lo que la suma de exponentes no tiene interpretación económica directa sobre la elección — solo la razón entre ellos determina la canasta óptima.`;
       }
     },
 
@@ -959,35 +959,35 @@
       tipoSolucion(px, py, m, s) {
         const o = this.optimum(px, py, m, s);
         if (o.corner === 'empate') return 'Esquina indeterminada (empate de pendientes)';
-        return `Esquina: todo el gasto en ${o.corner === 'x' ? 'x' : 'y'}`;
+        return `Esquina: todo el gasto en ${o.corner === 'x' ? 'x₁' : 'x₂'}`;
       },
       derivationHTML(s) {
         return `
         <div class="step">
           <span class="lbl">1. Planteo del problema</span>
-          $$\\max_{x,y\\ge0}\\; U(x,y) = a\\,x + b\\,y \\quad \\text{s.a.}\\quad p_x x + p_y y = m$$
+          $$\\max_{x_1,x_2\\ge0}\\; U(x_1,x_2) = a\\,x_1 + b\\,x_2 \\quad \\text{s.a.}\\quad p_1 x_1 + p_2 x_2 = m$$
           Las curvas de indiferencia son <strong>rectas paralelas</strong> de pendiente $-a/b$: los bienes se sustituyen a una tasa constante, independiente de las cantidades consumidas.
         </div>
         <div class="step">
           <span class="lbl">2. Por qué no aplica el Lagrangiano interior</span>
-          $U_x = a$ y $U_y=b$ son constantes: el RMS $= a/b$ nunca iguala genéricamente a $p_x/p_y$ salvo coincidencia exacta. La condición de tangencia de primer orden no identifica un óptimo interior; la solución es de <strong>esquina</strong>, determinada por comparación directa de "utilidad marginal por peso gastado":
-          $$\\frac{U_x}{p_x} = \\frac{a}{p_x} \\quad \\text{vs.} \\quad \\frac{U_y}{p_y} = \\frac{b}{p_y}$$
+          $U_{x_1} = a$ y $U_{x_2}=b$ son constantes: el RMS $= a/b$ nunca iguala genéricamente a $p_1/p_2$ salvo coincidencia exacta. La condición de tangencia de primer orden no identifica un óptimo interior; la solución es de <strong>esquina</strong>, determinada por comparación directa de "utilidad marginal por peso gastado":
+          $$\\frac{U_{x_1}}{p_1} = \\frac{a}{p_1} \\quad \\text{vs.} \\quad \\frac{U_{x_2}}{p_2} = \\frac{b}{p_2}$$
         </div>
         <div class="step">
           <span class="lbl">3. Regla de decisión</span>
-          $$x^*=\\begin{cases}
-            m/p_x, & \\text{si } a/p_x > b/p_y \\quad\\text{(todo el ingreso a }x\\text{)}\\\\[4pt]
-            0, & \\text{si } a/p_x < b/p_y \\quad\\text{(todo el ingreso a }y\\text{)}\\\\[4pt]
-            \\text{cualquier punto de la recta presupuestaria}, & \\text{si } a/p_x = b/p_y
+          $$x_1^*=\\begin{cases}
+            m/p_1, & \\text{si } a/p_1 > b/p_2 \\quad\\text{(todo el ingreso a }x_1\\text{)}\\\\[4pt]
+            0, & \\text{si } a/p_1 < b/p_2 \\quad\\text{(todo el ingreso a }x_2\\text{)}\\\\[4pt]
+            \\text{cualquier punto de la recta presupuestaria}, & \\text{si } a/p_1 = b/p_2
           \\end{cases}$$
         </div>
         <div class="step">
           <span class="lbl">4. Curva precio-consumo y demanda</span>
-          La demanda $x^*(p_x)$ es una <strong>función escalón</strong>: vale $m/p_x$ mientras $p_x < (a/b)\\,p_y$, cae discontinuamente a $0$ en cuanto $p_x$ supera ese umbral (con un valor indeterminado exactamente en el umbral). La curva precio-consumo, en el plano $(x,y)$, recorre el eje horizontal hasta el vértice $(m/p_x,0)$ y luego "salta" al eje vertical $(0,m/p_y)$: no pasa por el interior del cuadrante.
+          La demanda $x_1^*(p_1)$ es una <strong>función escalón</strong>: vale $m/p_1$ mientras $p_1 < (a/b)\\,p_2$, cae discontinuamente a $0$ en cuanto $p_1$ supera ese umbral (con un valor indeterminado exactamente en el umbral). La curva precio-consumo, en el plano $(x_1,x_2)$, recorre el eje horizontal hasta el vértice $(m/p_1,0)$ y luego "salta" al eje vertical $(0,m/p_2)$: no pasa por el interior del cuadrante.
         </div>`;
       },
       notaHTML(s) {
-        return `Con $a=${fmt(s.a,2)}$ y $b=${fmt(s.b,2)}$, el consumidor compara $a/p_x=${fmt(s.a/state.px,3)}$ contra $b/p_y=${fmt(s.b/state.py,3)}$ (valores con los precios actuales) y gasta <strong>todo</strong> el ingreso en el bien de mayor utilidad marginal por peso. No existe, en general, un óptimo interior: pequeños cambios de precio pueden producir saltos discretos en la canasta óptima (discontinuidad de la demanda), a diferencia de Cobb-Douglas o CES con $\\rho<1$.`;
+        return `Con $a=${fmt(s.a,2)}$ y $b=${fmt(s.b,2)}$, el consumidor compara $a/p_1=${fmt(s.a/state.px,3)}$ contra $b/p_2=${fmt(s.b/state.py,3)}$ (valores con los precios actuales) y gasta <strong>todo</strong> el ingreso en el bien de mayor utilidad marginal por peso. No existe, en general, un óptimo interior: pequeños cambios de precio pueden producir saltos discretos en la canasta óptima (discontinuidad de la demanda), a diferencia de Cobb-Douglas o CES con $\\rho<1$.`;
       }
     },
 
@@ -1028,31 +1028,31 @@
         return `
         <div class="step">
           <span class="lbl">1. Planteo del problema</span>
-          $$\\max_{x,y\\ge0}\\; U(x,y) = \\min\\!\\left(\\frac{x}{a},\\frac{y}{b}\\right) \\quad \\text{s.a.}\\quad p_x x + p_y y = m$$
-          Las curvas de indiferencia tienen forma de <strong>L</strong> con vértice en la recta $x/a=y/b$: consumir unidades adicionales de un solo bien, manteniendo el otro fijo, no incrementa la utilidad.
+          $$\\max_{x_1,x_2\\ge0}\\; U(x_1,x_2) = \\min\\!\\left(\\frac{x_1}{a},\\frac{x_2}{b}\\right) \\quad \\text{s.a.}\\quad p_1 x_1 + p_2 x_2 = m$$
+          Las curvas de indiferencia tienen forma de <strong>L</strong> con vértice en la recta $x_1/a=x_2/b$: consumir unidades adicionales de un solo bien, manteniendo el otro fijo, no incrementa la utilidad.
         </div>
         <div class="step">
           <span class="lbl">2. Por qué no aplica el Lagrangiano (función no diferenciable)</span>
-          $U(x,y)=\\min(x/a,\\,y/b)$ no es diferenciable en el vértice, que es precisamente donde se ubica el óptimo. La condición de optimalidad no es una igualación de utilidades marginales, sino la observación de que en el óptimo <strong>nunca conviene</strong> tener sobrante de ningún bien: los dos argumentos del mínimo se igualan.
-          $$\\frac{x}{a} = \\frac{y}{b} \\quad\\Longrightarrow\\quad y = \\frac{b}{a}\\,x$$
+          $U(x_1,x_2)=\\min(x_1/a,\\,x_2/b)$ no es diferenciable en el vértice, que es precisamente donde se ubica el óptimo. La condición de optimalidad no es una igualación de utilidades marginales, sino la observación de que en el óptimo <strong>nunca conviene</strong> tener sobrante de ningún bien: los dos argumentos del mínimo se igualan.
+          $$\\frac{x_1}{a} = \\frac{x_2}{b} \\quad\\Longrightarrow\\quad x_2 = \\frac{b}{a}\\,x_1$$
         </div>
         <div class="step">
           <span class="lbl">3. Sustitución en la restricción presupuestaria</span>
-          $$p_x x + p_y\\left(\\frac{b}{a}x\\right) = m \\;\\Longrightarrow\\; x\\left(p_x + \\frac{b}{a}p_y\\right)=m \\;\\Longrightarrow\\; x\\cdot\\frac{a p_x + b p_y}{a} = m$$
+          $$p_1 x_1 + p_2\\left(\\frac{b}{a}x_1\\right) = m \\;\\Longrightarrow\\; x_1\\left(p_1 + \\frac{b}{a}p_2\\right)=m \\;\\Longrightarrow\\; x_1\\cdot\\frac{a p_1 + b p_2}{a} = m$$
         </div>
         <div class="step">
           <span class="lbl">4. Funciones de demanda</span>
-          $$\\boxed{x^{*}(p_x,p_y,m) = \\frac{a\\, m}{a\\,p_x + b\\,p_y}} \\qquad
-            \\boxed{y^{*}(p_x,p_y,m) = \\frac{b\\, m}{a\\,p_x + b\\,p_y}}$$
-          A diferencia de Cobb-Douglas, aquí <strong>ambos</strong> precios ($p_x$ y $p_y$) entran en la demanda de cada bien: no hay "independencia" del bien no directamente afectado, porque la complementariedad estricta liga las cantidades.
+          $$\\boxed{x_1^{*}(p_1,p_2,m) = \\frac{a\\, m}{a\\,p_1 + b\\,p_2}} \\qquad
+            \\boxed{x_2^{*}(p_1,p_2,m) = \\frac{b\\, m}{a\\,p_1 + b\\,p_2}}$$
+          A diferencia de Cobb-Douglas, aquí <strong>ambos</strong> precios ($p_1$ y $p_2$) entran en la demanda de cada bien: no hay "independencia" del bien no directamente afectado, porque la complementariedad estricta liga las cantidades.
         </div>
         <div class="step">
           <span class="lbl">5. Curva precio-consumo</span>
-          Al variar $p_x$ (con $p_y,m$ fijos), el óptimo se mueve siempre sobre la recta $y=(b/a)x$: la curva precio-consumo <strong>coincide con la senda de expansión</strong> y tiene pendiente constante $b/a$ — no es horizontal ni vertical salvo casos degenerados de $a$ o $b$.
+          Al variar $p_1$ (con $p_2,m$ fijos), el óptimo se mueve siempre sobre la recta $x_2=(b/a)x_1$: la curva precio-consumo <strong>coincide con la senda de expansión</strong> y tiene pendiente constante $b/a$ — no es horizontal ni vertical salvo casos degenerados de $a$ o $b$.
         </div>`;
       },
       notaHTML(s) {
-        return `Con $a=${fmt(s.a,2)}$ y $b=${fmt(s.b,2)}$, la proporción óptima fija es $y^*/x^* = b/a = ${fmt(s.b/s.a,3)}$ en todo punto, independientemente de los precios. Ejemplo típico de cátedra: zapato izquierdo/derecho, o insumos en proporciones técnicas fijas (Leontief en producción). La elasticidad de sustitución es $\\sigma=0$.`;
+        return `Con $a=${fmt(s.a,2)}$ y $b=${fmt(s.b,2)}$, la proporción óptima fija es $x_2^*/x_1^* = b/a = ${fmt(s.b/s.a,3)}$ en todo punto, independientemente de los precios. Ejemplo típico de cátedra: zapato izquierdo/derecho, o insumos en proporciones técnicas fijas (Leontief en producción). La elasticidad de sustitución es $\\sigma=0$.`;
       }
     },
 
@@ -1111,31 +1111,31 @@
         return `
         <div class="step">
           <span class="lbl">1. Planteo del problema</span>
-          $$\\max_{x,y\\ge0}\\; U(x,y) = \\left(\\alpha x^{\\rho} + (1-\\alpha) y^{\\rho}\\right)^{1/\\rho} \\quad \\text{s.a.}\\quad p_x x + p_y y = m, \\qquad \\rho < 1,\\; \\rho\\neq0$$
+          $$\\max_{x_1,x_2\\ge0}\\; U(x_1,x_2) = \\left(\\alpha x_1^{\\rho} + (1-\\alpha) x_2^{\\rho}\\right)^{1/\\rho} \\quad \\text{s.a.}\\quad p_1 x_1 + p_2 x_2 = m, \\qquad \\rho < 1,\\; \\rho\\neq0$$
           La elasticidad de sustitución constante es $\\sigma = \\dfrac{1}{1-\\rho}$. Casos límite: $\\rho\\to1$ (sustitutos perfectos, $\\sigma\\to\\infty$), $\\rho\\to0$ (Cobb-Douglas, $\\sigma=1$), $\\rho\\to-\\infty$ (Leontief, $\\sigma\\to0$).
         </div>
         <div class="step">
           <span class="lbl">2. Condiciones de primer orden y RMS</span>
-          $$U_x = \\alpha x^{\\rho-1}\\left(\\alpha x^\\rho+(1-\\alpha)y^\\rho\\right)^{\\frac{1}{\\rho}-1}, \\qquad
-            U_y = (1-\\alpha) y^{\\rho-1}\\left(\\alpha x^\\rho+(1-\\alpha)y^\\rho\\right)^{\\frac{1}{\\rho}-1}$$
-          $$\\text{RMS}_{xy}=\\frac{U_x}{U_y} = \\frac{\\alpha}{1-\\alpha}\\left(\\frac{x}{y}\\right)^{\\rho-1} = \\frac{p_x}{p_y}$$
+          $$U_{x_1} = \\alpha x_1^{\\rho-1}\\left(\\alpha x_1^\\rho+(1-\\alpha)x_2^\\rho\\right)^{\\frac{1}{\\rho}-1}, \\qquad
+            U_{x_2} = (1-\\alpha) x_2^{\\rho-1}\\left(\\alpha x_1^\\rho+(1-\\alpha)x_2^\\rho\\right)^{\\frac{1}{\\rho}-1}$$
+          $$\\text{RMS}_{12}=\\frac{U_{x_1}}{U_{x_2}} = \\frac{\\alpha}{1-\\alpha}\\left(\\frac{x_1}{x_2}\\right)^{\\rho-1} = \\frac{p_1}{p_2}$$
         </div>
         <div class="step">
-          <span class="lbl">3. Despeje de la razón óptima $x/y$</span>
-          $$\\left(\\frac{x}{y}\\right)^{\\rho-1} = \\frac{1-\\alpha}{\\alpha}\\cdot\\frac{p_x}{p_y}
+          <span class="lbl">3. Despeje de la razón óptima $x_1/x_2$</span>
+          $$\\left(\\frac{x_1}{x_2}\\right)^{\\rho-1} = \\frac{1-\\alpha}{\\alpha}\\cdot\\frac{p_1}{p_2}
           \\;\\Longrightarrow\\;
-          \\frac{x}{y} = \\left[\\frac{1-\\alpha}{\\alpha}\\cdot\\frac{p_x}{p_y}\\right]^{\\frac{1}{\\rho-1}} = \\left[\\frac{\\alpha}{1-\\alpha}\\cdot\\frac{p_y}{p_x}\\right]^{\\sigma-1}$$
+          \\frac{x_1}{x_2} = \\left[\\frac{1-\\alpha}{\\alpha}\\cdot\\frac{p_1}{p_2}\\right]^{\\frac{1}{\\rho-1}} = \\left[\\frac{\\alpha}{1-\\alpha}\\cdot\\frac{p_2}{p_1}\\right]^{\\sigma-1}$$
         </div>
         <div class="step">
           <span class="lbl">4. Funciones de demanda marshallianas (resultado general CES)</span>
-          $$\\boxed{x^{*}(p_x,p_y,m) = \\frac{\\alpha^{\\sigma}\\,p_x^{-\\sigma}}{\\alpha^{\\sigma}p_x^{1-\\sigma}+(1-\\alpha)^{\\sigma}p_y^{1-\\sigma}}\\; m}
+          $$\\boxed{x_1^{*}(p_1,p_2,m) = \\frac{\\alpha^{\\sigma}\\,p_1^{-\\sigma}}{\\alpha^{\\sigma}p_1^{1-\\sigma}+(1-\\alpha)^{\\sigma}p_2^{1-\\sigma}}\\; m}
           \\qquad
-          \\boxed{y^{*}(p_x,p_y,m) = \\frac{(1-\\alpha)^{\\sigma}\\,p_y^{-\\sigma}}{\\alpha^{\\sigma}p_x^{1-\\sigma}+(1-\\alpha)^{\\sigma}p_y^{1-\\sigma}}\\; m}$$
+          \\boxed{x_2^{*}(p_1,p_2,m) = \\frac{(1-\\alpha)^{\\sigma}\\,p_2^{-\\sigma}}{\\alpha^{\\sigma}p_1^{1-\\sigma}+(1-\\alpha)^{\\sigma}p_2^{1-\\sigma}}\\; m}$$
           A diferencia de Cobb-Douglas, la <strong>proporción del gasto no es constante</strong>: depende de la relación de precios elevada a $(1-\\sigma)$, salvo en el caso límite $\\sigma=1$.
         </div>
         <div class="step">
           <span class="lbl">5. Curva precio-consumo y elasticidad-precio (con $\\rho=${fmt(rho,2)}$, $\\sigma=${fmt(sigma,3)}$ en el valor actual)</span>
-          La curva precio-consumo <strong>no es horizontal</strong> salvo que $\\sigma=1$: si $\\sigma>1$ (bienes sustitutos brutos, $\\rho>0$), al abaratarse $x$ el gasto se desplaza <em>hacia</em> $x$ (el gasto en $y$ cae); si $\\sigma<1$ (complementarios brutos, $\\rho<0$), el gasto en $y$ aumenta pese a que $p_y$ no cambió. La elasticidad-precio propia deja de ser constante e igual a $-1$: se calcula numéricamente en el panel de resultados para el punto actual.
+          La curva precio-consumo <strong>no es horizontal</strong> salvo que $\\sigma=1$: si $\\sigma>1$ (bienes sustitutos brutos, $\\rho>0$), al abaratarse $x_1$ el gasto se desplaza <em>hacia</em> $x_1$ (el gasto en $x_2$ cae); si $\\sigma<1$ (complementarios brutos, $\\rho<0$), el gasto en $x_2$ aumenta pese a que $p_2$ no cambió. La elasticidad-precio propia deja de ser constante e igual a $-1$: se calcula numéricamente en el panel de resultados para el punto actual.
         </div>`;
       },
       notaHTML(s) {
@@ -1203,10 +1203,10 @@
 
     // axis labels
     const lblX = svgEl('text', { x: margin.l + plotW - 4, y: margin.t + plotH + 22, 'text-anchor': 'end', 'font-family': 'IBM Plex Mono, monospace', 'font-size': '12', fill: '#2a2a28' });
-    lblX.textContent = 'x (bien 1)';
+    lblX.textContent = 'x₁';
     svg.appendChild(lblX);
     const lblY = svgEl('text', { x: margin.l - 40, y: margin.t + 10, 'text-anchor': 'start', 'font-family': 'IBM Plex Mono, monospace', 'font-size': '12', fill: '#2a2a28' });
-    lblY.textContent = 'y (bien 2)';
+    lblY.textContent = 'x₂';
     svg.appendChild(lblY);
 
     // tick numbers
@@ -1220,8 +1220,28 @@
     }
 
     // Indifference curves: despacha según la forma funcional del punto (formKey, s)
-    function drawIndifferenceCurve(formKey, uLevel, colorHex, s, dashed) {
+    // labelAnchor: {x,y} en coordenadas económicas donde ubicar la etiqueta U=...;
+    // labelOffset: [dx,dy] en píxeles de pantalla para separar la etiqueta de la curva/marcador
+    function drawIndifferenceCurve(formKey, uLevel, colorHex, s, dashed, labelAnchor, labelOffset) {
       const mdl = MODELS[formKey];
+      const offset = labelOffset || [8, -8];
+      function placeLabel(ax, ay) {
+        const lblX = sx(ax) + offset[0], lblY = syf(ay) + offset[1];
+        const text = `U=${fmt(uLevel, 2)}`;
+        // fondo sutil para legibilidad sobre la grilla de papel milimetrado
+        const approxWidth = text.length * 5.6 + 4;
+        svg.appendChild(svgEl('rect', {
+          x: lblX - 2, y: lblY - 9, width: approxWidth, height: 12,
+          fill: '#faf8f0', opacity: 0.8
+        }));
+        const lbl = svgEl('text', {
+          x: lblX, y: lblY,
+          'font-family': 'IBM Plex Mono, monospace', 'font-size': '10',
+          fill: colorHex, opacity: 0.95
+        });
+        lbl.textContent = text;
+        svg.appendChild(lbl);
+      }
       if (formKey === 'leontief') {
         // curva en L: vértice en (a*u, b*u); rama vertical x=a*u para y>=b*u, rama horizontal y=b*u para x>=a*u
         const vx = s.a * uLevel, vy = s.b * uLevel;
@@ -1229,6 +1249,7 @@
         const dH = `M ${sx(vx).toFixed(1)},${syf(vy).toFixed(1)} L ${sx(Math.min(vx * 3.2, maxX * 1.4)).toFixed(1)},${syf(vy).toFixed(1)}`;
         svg.appendChild(svgEl('path', { d: dV, fill: 'none', stroke: colorHex, 'stroke-width': 1.8, opacity: 0.85, 'stroke-dasharray': dashed ? '5,4' : 'none' }));
         svg.appendChild(svgEl('path', { d: dH, fill: 'none', stroke: colorHex, 'stroke-width': 1.8, opacity: 0.85, 'stroke-dasharray': dashed ? '5,4' : 'none' }));
+        if (labelAnchor) placeLabel(labelAnchor.x, labelAnchor.y);
         return;
       }
       const pts = [];
@@ -1244,6 +1265,7 @@
       if (pts.length < 2) return;
       const d = 'M ' + pts.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' L ');
       svg.appendChild(svgEl('path', { d, fill: 'none', stroke: colorHex, 'stroke-width': 1.8, opacity: 0.85, 'stroke-dasharray': dashed ? '5,4' : 'none' }));
+      if (labelAnchor) placeLabel(labelAnchor.x, labelAnchor.y);
     }
 
     // fixed points: indifference curves + budget lines + markers
@@ -1253,7 +1275,8 @@
       const color = paletteFixed[idx % paletteFixed.length];
       const pointModel = MODELS[p.form] || model;
       const o = pointModel.optimum(p.px, p.py, p.m, p);
-      drawIndifferenceCurve(p.form, o.u, color, p, true);
+      // offset hacia abajo-derecha para no solapar con el marcador circular del óptimo
+      drawIndifferenceCurve(p.form, o.u, color, p, true, { x: o.x, y: o.y }, [8, 13]);
       // budget line
       const xInt = p.m / p.px, yInt = p.m / p.py;
       svg.appendChild(svgEl('line', {
@@ -1265,7 +1288,8 @@
     });
 
     // main indifference curve (through current optimum)
-    drawIndifferenceCurve(state.form, opt.u, '#144951', state, false);
+    // offset hacia arriba-derecha, coordinado con la etiqueta "E* (x,y)" ya existente más abajo
+    drawIndifferenceCurve(state.form, opt.u, '#144951', state, false, { x: opt.x, y: opt.y }, [9, -24]);
 
     // main budget line
     svg.appendChild(svgEl('line', {
@@ -1338,8 +1362,8 @@
     svg.appendChild(svgEl('line', { x1: margin.l, y1: margin.t, x2: margin.l, y2: margin.t + plotH, stroke: '#2a2a28', 'stroke-width': 1.3 }));
     svg.appendChild(svgEl('line', { x1: margin.l, y1: margin.t + plotH, x2: margin.l + plotW, y2: margin.t + plotH, stroke: '#2a2a28', 'stroke-width': 1.3 }));
 
-    svg.appendChild(svgEl('text', { x: margin.l + plotW, y: margin.t + plotH + 20, 'text-anchor': 'end', 'font-family': 'IBM Plex Mono, monospace', 'font-size': '11', fill: '#2a2a28' })).textContent = 'x';
-    svg.appendChild(svgEl('text', { x: margin.l - 36, y: margin.t + 6, 'font-family': 'IBM Plex Mono, monospace', 'font-size': '11', fill: '#2a2a28' })).textContent = 'y';
+    svg.appendChild(svgEl('text', { x: margin.l + plotW, y: margin.t + plotH + 20, 'text-anchor': 'end', 'font-family': 'IBM Plex Mono, monospace', 'font-size': '11', fill: '#2a2a28' })).textContent = 'x₁';
+    svg.appendChild(svgEl('text', { x: margin.l - 36, y: margin.t + 6, 'font-family': 'IBM Plex Mono, monospace', 'font-size': '11', fill: '#2a2a28' })).textContent = 'x₂';
 
     // path — se corta en segmentos donde hay salto discreto (sustitutos perfectos)
     // detectando distancia euclídea anómala entre puntos consecutivos
@@ -1374,8 +1398,8 @@
     });
 
     const capt = sweepAxis === 'px'
-      ? `Lugar geométrico de óptimos al variar pₓ ∈ [0.5, 10], con p_y = ${py.toFixed(1)} y m = ${m} fijos`
-      : `Lugar geométrico de óptimos al variar p_y ∈ [0.5, 10], con pₓ = ${px.toFixed(1)} y m = ${m} fijos`;
+      ? `Lugar geométrico de óptimos al variar p₁ ∈ [0.5, 10], con p₂ = ${py.toFixed(1)} y m = ${m} fijos`
+      : `Lugar geométrico de óptimos al variar p₂ ∈ [0.5, 10], con p₁ = ${px.toFixed(1)} y m = ${m} fijos`;
     el.pccCaption.textContent = capt;
   }
 
@@ -1420,8 +1444,8 @@
     svg.appendChild(svgEl('line', { x1: margin.l, y1: margin.t, x2: margin.l, y2: margin.t + plotH, stroke: '#2a2a28', 'stroke-width': 1.3 }));
     svg.appendChild(svgEl('line', { x1: margin.l, y1: margin.t + plotH, x2: margin.l + plotW, y2: margin.t + plotH, stroke: '#2a2a28', 'stroke-width': 1.3 }));
 
-    const xAxisLabel = sweepAxis === 'px' ? 'pₓ' : 'p_y';
-    const demandLabel = sweepAxis === 'px' ? 'x*' : 'y*';
+    const xAxisLabel = sweepAxis === 'px' ? 'p₁' : 'p₂';
+    const demandLabel = sweepAxis === 'px' ? 'x₁*' : 'x₂*';
     svg.appendChild(svgEl('text', { x: margin.l + plotW, y: margin.t + plotH + 20, 'text-anchor': 'end', 'font-family': 'IBM Plex Mono, monospace', 'font-size': '11', fill: '#2a2a28' })).textContent = xAxisLabel;
     svg.appendChild(svgEl('text', { x: margin.l - 36, y: margin.t + 6, 'font-family': 'IBM Plex Mono, monospace', 'font-size': '11', fill: '#2a2a28' })).textContent = demandLabel;
 
@@ -1465,18 +1489,18 @@
     if (state.form === 'cobb-douglas') {
       const sum = state.cdAlpha + state.cdBeta;
       eqText = sweepAxis === 'px'
-        ? `x*(pₓ) = [α/(α+β)]·m / pₓ = ${(state.cdAlpha/sum).toFixed(3)}·${m} / pₓ`
-        : `y*(p_y) = [β/(α+β)]·m / p_y = ${(state.cdBeta/sum).toFixed(3)}·${m} / p_y`;
+        ? `x₁*(p₁) = [α/(α+β)]·m / p₁ = ${(state.cdAlpha/sum).toFixed(3)}·${m} / p₁`
+        : `x₂*(p₂) = [β/(α+β)]·m / p₂ = ${(state.cdBeta/sum).toFixed(3)}·${m} / p₂`;
     } else if (state.form === 'leontief') {
       eqText = sweepAxis === 'px'
-        ? `x*(pₓ) = a·m / (a·pₓ + b·p_y)`
-        : `y*(p_y) = b·m / (a·pₓ + b·p_y)`;
+        ? `x₁*(p₁) = a·m / (a·p₁ + b·p₂)`
+        : `x₂*(p₂) = b·m / (a·p₁ + b·p₂)`;
     } else if (state.form === 'perfect-subs') {
-      eqText = sweepAxis === 'px' ? `x*(pₓ) = m/pₓ si a/pₓ > b/p_y, 0 en caso contrario`
-                                    : `y*(p_y) = m/p_y si b/p_y > a/pₓ, 0 en caso contrario`;
+      eqText = sweepAxis === 'px' ? `x₁*(p₁) = m/p₁ si a/p₁ > b/p₂, 0 en caso contrario`
+                                    : `x₂*(p₂) = m/p₂ si b/p₂ > a/p₁, 0 en caso contrario`;
     } else {
-      eqText = sweepAxis === 'px' ? `x*(pₓ) — demanda CES, sin forma cerrada simple en pₓ`
-                                    : `y*(p_y) — demanda CES, sin forma cerrada simple en p_y`;
+      eqText = sweepAxis === 'px' ? `x₁*(p₁) — demanda CES, sin forma cerrada simple en p₁`
+                                    : `x₂*(p₂) — demanda CES, sin forma cerrada simple en p₂`;
     }
     el.demandCaption.textContent = eqText + `  ·  elasticidad-precio en el punto actual ≈ ${elast.toFixed(3)}`;
   }
@@ -1503,7 +1527,7 @@
       const yUp = model.indifferenceY(opt.x - h, opt.u, state);
       const yDn = model.indifferenceY(opt.x + h, opt.u, state);
       const rms = (yUp - yDn) / (2 * h);
-      el.resRms.textContent = rms.toFixed(3) + '  (= pₓ/p_y = ' + (px/py).toFixed(3) + ')';
+      el.resRms.textContent = rms.toFixed(3) + '  (= p₁/p₂ = ' + (px/py).toFixed(3) + ')';
     }
 
     el.resElast.textContent = model.elasticityOwnPrice(px, py, m, state).toFixed(3);
@@ -1524,9 +1548,9 @@
     el.blockRho.classList.toggle('visible', state.form === 'ces');
 
     if (state.form === 'perfect-subs') {
-      el.hintAb.innerHTML = '$U(x,y) = a\\,x + b\\,y$ — tasa marginal de sustitución constante $= a/b$';
+      el.hintAb.innerHTML = '$U(x_1,x_2) = a\\,x_1 + b\\,x_2$ — tasa marginal de sustitución constante $= a/b$';
     } else if (state.form === 'leontief') {
-      el.hintAb.innerHTML = '$U(x,y) = \\min(x/a,\\, y/b)$ — proporción fija $y/x = b/a$ en el óptimo';
+      el.hintAb.innerHTML = '$U(x_1,x_2) = \\min(x_1/a,\\, x_2/b)$ — proporción fija $x_2/x_1 = b/a$ en el óptimo';
     }
 
     if (window.MathJax && window.MathJax.typesetPromise) {
